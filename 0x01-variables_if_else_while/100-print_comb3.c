@@ -7,22 +7,24 @@
  */
 int main(void)
 {
-	int n;
-	int i;
+	int ones = '0';
+	int tens = '0';
 
-	for (n = 0 ; n < 9 ; n++)
+	for (tens = 0 ; tens <= 9 ; tens++)/* prints tens digit*/
 	{
-		i = n + 1;
-		do {
-			putchar('0' + n);
-			putchar('0' + n);
-			if (n < 8)
+		for (ones = 0 ; ones <= 9 ; ones++)/* prints ones digit*/
+		{
+			if(!((ones == tens) || (tens > ones)))/* eliminates repitition*/
 			{
-				putchar(',');
-				putchar(32);
+				putchar(tens);
+				putchar(ones);
+				if(!(ones == 9 && tens == 8 ))
+				{
+					puchar(',');
+					putchar(' ');
+				}
 			}
-			i++;
-		} while (i < 10);
+		}
 	}
 	putchar('\n');
 	return (0);
