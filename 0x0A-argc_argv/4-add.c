@@ -49,12 +49,12 @@ int main(int argc, char *argv[])
 	str_to_int = atoi(argv[count]);
 	sum += str_to_int;
 	}
-		else
-		{
-		printf("Error\n");
-		return (1);
-		}
-		count++;
+	else
+	{
+	printf("Error\n");
+	return (1);
+	}
+	count++;
 	}
 	printf("%d\n", sum); 
 	return (0);
