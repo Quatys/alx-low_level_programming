@@ -1,46 +1,31 @@
 #include <stdlib.h>
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _memset - fills memory with a constant byte
- * @s: memory area to be filled
- * @b: char to copy
- *
- * Return: pointer to the memory area s
+ * array_range - Entry point
+ * @min: number min
+ * @max: number max
+ * Return: a pointer to an array
  */
-
-char *_memset(char *s, char b, unsigned int n)
+int *array_range(int min, int max)
 {
-	unsigned int i;
+	int *array = NULL;
+	int i, t, count;
 
-	for (i = 0; i < n; i++)
+	count = 0;
+	if (min > max)
+		return (NULL);
+	t = (max - min) + 1;
+	array = malloc(t * sizeof(int));
+	if (array != NULL)
 	{
-		s[i] = b;
+		for (i = min; i <= max; i++)
+		{
+			array[count] = i;
+			count++;
+		}
+		return (array);
 	}
-
-	return (s);
-}
-
-/**
- * _calloc - allocates memory for an array
- * @nmemb: number of elements in the array
- * @size: size of each element
- *
- * Return: pointer to allocated memory
- */
-void *_calloc(unsigned int nmemb, unsigned int size)
-{
-	char *ptr;
-
-	if (nmemb == 0 || size == 0)
-		return (NULL);
-
-	ptr = malloc(size * nmemb);
-
-	if (ptr == NULL)
-		return (NULL);
-
-	_memset(ptr, 0, nmemb * size);
-
-	return (ptr);
+	return (NULL);
 }
